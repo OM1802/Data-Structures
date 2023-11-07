@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+int main(){
+    int arr[6]={1,5,8,10,24,50};
+    int n, x,f=0;
+    n=6;
+    cout<<"ENTER ELEMENT TO SEARCH: "<<endl;
+    cin>>x;
+    for(int i=0; i<n; i++)
+    {
+        if(arr[i]==x)
+        {
+            cout<<" ELEMENT FOUND AT INDEX: "<<i<<endl;
+            
+        
+        }
+        else
+            f=1;
+        
+        
+    }
+    if(f)
+        cout<<"ELEMENT NOT FOUND!!"<<endl;
+    return 0;
+}
+  
