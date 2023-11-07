@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+struct Node {
+    char data;
+    Node* left;
+    Node* right;
+};
+
+Node* create(char item);
+Node* insertion(Node* root, char item);
+void inorder(Node* root);
+
+int main() {
+    Node* root = nullptr;
+
+    root = insertion(root, 'C');
+    root = insertion(root, 'A');
+    root = insertion(root, 'B');
+    root = insertion(root, 'E');
+    root = insertion(root, 'D');
+    root = insertion(root, 'F');
+
+    cout << "IN-ORDER TRAVERSAL OF THE B.S.T IS: " << endl;
+    inorder(root);
+    cout << endl;
+
+    return 0;
+}
+
+Node* create(char item) {
+    Node* newnode = new Node;
+    newnode->data = item;
+    newnode->left = newnode->right = nullptr;
+    return newnode;
+}
+
+Node* insertion(Node* root, char item) {
+    if (root == nullptr)
+        return create(item);
+    if (item < root->data)
+        root->left = insertion(root->left, item);
+    else
+        root->right = insertion(root->right, item);
+
+    return root;
+}
+
+void inorder(Node* root) {
+    if (root == nullptr)
+        return;
+    inorder(root->left);
+    cout << root->data << " | ";
+    inorder(root->right);
+}
