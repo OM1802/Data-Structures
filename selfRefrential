@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+struct Student{
+    int marks;
+    string name;
+    struct Student *link;
+    
+};
+int main(){
+    struct Student s1;
+    s1.marks=44;
+    s1.name="MAX";
+    s1.link=NULL;
+    
+    struct Student s2;
+    s2.marks=59;
+    s2.name="ALEX";
+    s2.link=NULL;
+    
+    s1.link=&s2;
+    
+    cout<<"INFORMATION ON s1: \n";
+    cout<<"MARKS: "<<s1.marks<<endl;
+    cout<<"NAME: "<<s1.name<<endl;
+    
+    cout<<"INFORMATION ON s2: \n";
+    cout<<"MARKS: "<<s1.link->marks<<endl;
+    cout<<"NAME: "<<s1.link->name<<endl;
+    
+    
+}
