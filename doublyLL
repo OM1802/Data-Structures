@@ -1,0 +1,71 @@
+#include<iostream>
+using namespace std;
+
+//Node structure
+struct Node {
+    string item;
+    int quantity;
+    Node* next;
+    Node* prev;
+};
+
+//function to insert node at the beginning of the Doubly Linked List
+void insertNode(Node** head_ref, string new_item, int new_quantity) {
+    Node* new_node = new Node();
+    new_node->item = new_item;
+    new_node->quantity = new_quantity;
+    new_node->next = *head_ref;
+    new_node->prev = NULL;
+    if (*head_ref != NULL)
+        (*head_ref)->prev = new_node;
+    *head_ref = new_node;
+}
+
+//function to update the quantity of an item in the Doubly Linked List
+void updateQuantity(Node** head_ref, string item, int quantity) {
+    Node* current = *head_ref;
+    while (current != NULL) {
+        if (current->item == item) {
+            current->quantity = quantity;
+            return;
+        }
+        current = current->next;
+    }
+}
+
+//function to print the Doubly Linked List
+void printList(Node* node) {
+    while (node != NULL) {
+        cout << node->item << " " << node->quantity << " <-> ";
+        node = node->next;
+    }
+    cout << "X(End)";
+}
+
+int main() {
+    Node* head = NULL;
+
+    // insert node into the doubly linked list
+    insertNode(&head, "sugar", 30);
+    insertNode(&head, "salt", 40);
+    insertNode(&head, "pulse", 12);
+    insertNode(&head, "cake", 10);
+    insertNode(&head, "orange", 20);
+
+    // print the doubly linked list
+    cout << "Original Doubly Linked List: ";
+    printList(head);
+
+    // insert a new item at the beginning of the list
+    insertNode(&head, "butter", 12);
+
+    // update the quantity of sugar and pulse
+    updateQuantity(&head, "sugar", 14);
+    updateQuantity(&head, "pulse", 35);
+
+    // print the updated doubly linked list
+    cout << "\nUpdated Doubly Linked List: ";
+    printList(head);
+
+    return 0;
+}
