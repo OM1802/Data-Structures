@@ -1,6 +1,9 @@
-/*develop a program to reverse an array of characters without using any 
+/*
+develop a program to reverse an array of characters without using any 
 built-in string function. check for whether the given array contain a palindrome sequence or not? 
-display the proper representation of array before and after reverse along with proper message*/
+display the proper representation of array before and after reverse along with proper message
+*/
+//SOLUTION:-
 #include <iostream>
 using namespace std;
 int main()
